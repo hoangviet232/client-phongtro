@@ -16,7 +16,10 @@ const BoxInfo = ({ userData }) => {
             <a className='bg-[#13BB7B] py-2 flex items-center justify-center gap-2 w-full rounded-md text-white font-bold text-lg' href="/">
                 <BsTelephoneFill />{userData?.phone}
             </a>
-            <a className='bg-white py-2 flex items-center justify-center gap-2 w-full rounded-md  font-bold text-lg' href={`https://zalo.me/${userData?.zalo}`} target='_blank' >
+            <a className='bg-white py-2 flex items-center justify-center gap-2 w-full rounded-md  font-bold text-lg'
+                href={`https://zalo.me/${userData?.zalo}`}
+                target='_blank'
+            >
                 <SiZalo color='blue' size={35} />
             </a>
         </div>
