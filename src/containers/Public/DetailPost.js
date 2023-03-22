@@ -78,7 +78,7 @@ const DetailPost = () => {
                     <div className='mt-8'>
                         <h3 className='font-semibold text-xl my-4'> Thông tin mổ tả </h3>
                         <div className='flex flex-col gap-3'>
-                            {posts[0]?.description && JSON.parse(posts[0]?.description)?.map((item, index) => {
+                            {posts[0]?.description && JSON.parse[posts[0]?.description]?.map((item, index) => {
                                 return (
                                     <span key={index}>{item}</span>
                                 )
