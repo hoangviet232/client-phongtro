@@ -68,8 +68,8 @@ const Item = ({ images, user, title, star, description, attributes, address, id 
                     <div className='flex items-center gap-1'>
                         <a
                             className='bg-blue-700 text-white p-1 rounded-md'
-                            href={`tel://phone`}
-                            target='_blank'
+                            href={`tel:${user?.phone}`}
+
                         >
                             {`Gọi ${user?.phone}`}
                         </a>

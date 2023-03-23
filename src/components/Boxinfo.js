@@ -13,8 +13,11 @@ const BoxInfo = ({ userData }) => {
                 <BsDot color='green' size={28} />
                 <span> Đang hoạt động </span>
             </span>
-            <a className='bg-[#13BB7B] py-2 flex items-center justify-center gap-2 w-full rounded-md text-white font-bold text-lg' href="/">
+            <a className='bg-[#13BB7B] py-2 flex items-center justify-center gap-2 w-full rounded-md text-white font-bold text-lg'
+                href={`tel:${userData?.phone}`}
+            >
                 <BsTelephoneFill />{userData?.phone}
+
             </a>
             <a className='bg-white py-2 flex items-center justify-center gap-2 w-full rounded-md  font-bold text-lg'
                 href={`https://zalo.me/${userData?.zalo}`}
