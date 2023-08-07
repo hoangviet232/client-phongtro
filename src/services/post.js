@@ -1,11 +1,12 @@
 import axiosConfig from '../axiosConfig'
 import axios from 'axios'
 
-export const apiGetPosts = () => new Promise(async (resolve, reject) => {
+export const apiGetPosts = (query) => new Promise(async (resolve, reject) => {
     try {
         const response = await axiosConfig({
             method: 'get',
             url: '/api/v1/post/all',
+            params:{query}
         })
         resolve(response)
 
@@ -13,6 +14,8 @@ export const apiGetPosts = () => new Promise(async (resolve, reject) => {
         reject(error)
     }
 })
+
+
 export const apiGetPostsLimit = (query) => new Promise(async (resolve, reject) => {
     try {
         const response = await axiosConfig({
@@ -26,6 +29,7 @@ export const apiGetPostsLimit = (query) => new Promise(async (resolve, reject) =
         reject(error)
     }
 })
+
 export const apiGetNewPosts = () => new Promise(async (resolve, reject) => {
     try {
         const response = await axiosConfig({
@@ -52,10 +56,10 @@ export const apiUploadImages = (images) => new Promise(async (resolve, reject) =
     }
 })
 
-export const apiCreatePost = (payload) => new Promise(async(resolve, reject) => {
+export const apiCreatePost = (payload) => new Promise(async (resolve, reject) => {
     try {
-        const response = await axiosConfig ({
-            method:'post',
+        const response = await axiosConfig({
+            method: 'post',
             url: `/api/v1/post/create-new`,
             data: payload,
         })
@@ -101,7 +105,7 @@ export const apiDeletePost = (postId) => new Promise(async (resolve, reject) => 
         const response = await axiosConfig({
             method: 'delete',
             url: `/api/v1/post/delete`,
-            params:{postId}
+            params: { postId }
         })
         resolve(response)
 

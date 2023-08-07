@@ -74,7 +74,7 @@ const ManagePost = () => {
                 <tbody>
                     {!posts
                         ? <tr>
-                            <td>Kho Hieu</td>
+                            <td></td>
                         </tr>
                         : posts?.map(item => {
                             return (

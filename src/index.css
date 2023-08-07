@@ -70,14 +70,16 @@ input[type="range"]::-ms-thumb:active {
     border: solid 1px rgb(144, 211, 255);
 }
 
-button.slick-arrow::before{
-    font-size:50px !important;
-    color: yellow   !important;
+button.slick-arrow::before {
+    font-size: 50px !important;
+    color: yellow !important;
 }
-.slick-next{
-    right:35px !important;
+
+.slick-next {
+    right: 35px !important;
     top: 45% !important;
 }
+
 .slick-prev {
     left: 10px !important;
     z-index: 10 !important;
@@ -95,3 +97,10 @@ button.slick-arrow::before{
         transform: translateX(100px);
     }
 }
+
+.my-custom-scrollbar {
+    position: relative;
+    width: auto;
+    height: 400px;
+    overflow: auto;
+  }

@@ -5,6 +5,7 @@ import { getCodes, getCodesArea } from '../ultils/Common/getCodes'
 
 const { GrLinkPrevious } = icons
 
+
 const Modal = ({ setIsShowModal, content, name, handleSubmit, queries, arrMinMax, defaultText }) => {
 
     const [persent1, setPersent1] = useState(name === 'price' && arrMinMax?.priceArr
@@ -103,8 +104,9 @@ const Modal = ({ setIsShowModal, content, name, handleSubmit, queries, arrMinMax
                         <GrLinkPrevious size={24} />
                     </span>
                 </div>
-                {(name === 'category' || name === 'province') && <div className='p-4 flex flex-col'>
-                    <span className='py-2 flex gap-2 items-center border-b border-gray-200'>
+             
+                {(name === 'category' || name === 'province') && <div className='my-custom-scrollbar my-custom-scrollbar-primary p-4 flex flex-col '>
+                    <span className=' py-2 flex gap-2 items-center border-b border-gray-200'>
                         <input
                             type="radio"
                             name={name}
@@ -117,7 +119,7 @@ const Modal = ({ setIsShowModal, content, name, handleSubmit, queries, arrMinMax
                     </span>
                     {content?.map(item => {
                         return (
-                            <span key={item.code} className='py-2 flex gap-2 items-center border-b border-gray-200'>
+                            <span key={item.code} className='py-2 flex gap-2 border-b border-gray-200'>
                                 <input
                                     type="radio"
                                     name={name}
@@ -131,6 +133,7 @@ const Modal = ({ setIsShowModal, content, name, handleSubmit, queries, arrMinMax
                         )
                     })}
                 </div>}
+                
                 {(name === 'price' || name === 'area') && <div className='p-12 py-20 '>
                     <div className='flex flex-col items-center justify-center relative'>
                         <div className='z-30 absolute top-[-48px] font-bold text-xl text-orange-600'>

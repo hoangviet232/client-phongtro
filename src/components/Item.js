@@ -20,6 +20,7 @@ const Item = ({ images, user, title, star, description, attributes, address, id 
         <div className='w-full flex border-t border-orange-600 py-4'>
             <Link
                 to={`${path.DETAIL}${formatVietnameseToString(title?.replaceAll('/', ''))}/${id}`}
+                //    
                 className='w-2/5 flex flex-wrap gap-[2px] items-center relative cursor-pointer'
             >
                 {images.length > 0 && images.filter((i, index) => [...Array(4).keys()].some(i => i === index))?.map((i, index) => {

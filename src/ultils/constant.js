@@ -14,6 +14,8 @@ export const path = {
     EDIT_ACCOUNT: 'sua-thong-tin-ca-nhan',
     CONTACT: 'lien-he',
     DETAIL: '/chi-tiet/',
+    DETAILL: '/chi-tiet/',
+    SEARCH_ADDRESS:'/all',
     DETAIL_ALL: 'chi-tiet/*',
 }
 

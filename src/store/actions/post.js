@@ -1,9 +1,9 @@
 import actionTypes from './actionTypes'
 import { apiGetNewPosts, apiGetPosts, apiGetPostsLimit, apiGetPostsLimitAdmin, } from '../../services/post'
 
-export const getPosts = () => async (dispatch) => {
+export const getPosts = (query) => async (dispatch) => {
     try {
-        const response = await apiGetPosts()
+        const response = await apiGetPosts(query)
         if (response?.data.err === 0) {
             dispatch({
                 type: actionTypes.GET_POSTS,
@@ -74,7 +74,7 @@ export const getOutStandingPost = () => async (dispatch) => {
     try {
         const response = await apiGetPostsLimit({
             limitPost: 5,
-            order:['star','DESC']
+            order: ['star', 'DESC']
         })
         if (response?.data.err === 0) {
             dispatch({
@@ -123,11 +123,11 @@ export const getPostsLimitAdmin = (query) => async (dispatch) => {
 }
 
 export const editData = (dataEdit) => ({
-    type : actionTypes.EDIT_DATA,
+    type: actionTypes.EDIT_DATA,
     dataEdit
-}) 
+})
 
 export const resetDataEdit = () => ({
-    type : actionTypes.RESET_DATAEDIT
- 
+    type: actionTypes.RESET_DATAEDIT
+
 }) 

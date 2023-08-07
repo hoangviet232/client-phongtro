@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { InputForm, Button } from '../../components'
 import Swal from 'sweetalert2'
+import { useNavigate} from 'react-router-dom'
+
 
 const Contact = () => {
+    
     const [payload, setPayload] = useState({
         name: '',
         phone: '',
@@ -63,6 +66,7 @@ const Contact = () => {
                             textColor='text-white'
                             fullWidth
                             onClick={handleSubmit}
+                           
                         />
                     </div>
                 </div>

@@ -116,6 +116,7 @@ const CreatePost = ({ isEdit }) => {
             }
         }
     }
+    
     const resetPayload = () => {
         setPayload({
             categoryCode: '',

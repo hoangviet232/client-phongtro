@@ -35,7 +35,6 @@ const ItemSidebar = ({ title, content, isDouble, type }) => {
         });
     }
 
-
     return (
         <div className='p-4 rounded-md bg-white w-full'>
             <h3 className='text-lg font-semibold mb-4'>{title}</h3>

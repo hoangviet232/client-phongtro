@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPostsLimit } from '../../store/actions'
@@ -8,6 +8,12 @@ import { Map, Boxinfo, RelatedPost } from '../../components'
 import icons from '../../ultils/icons'
 import { useNavigate, createSearchParams } from 'react-router-dom'
 import { path } from '../../ultils/constant'
+import CommentSection from "../../components/CommentSection"; // Adjust the path according to your file structure
+import { InputForm, Button } from '../../components'
+import Swal from 'sweetalert2'
+import { RiFlagLine } from "react-icons/ri";
+
+
 
 const { HiLocationMarker, TbReportMoney, RiCrop2Line, BsStopwatch, BsHash } = icons
 
@@ -18,6 +24,20 @@ const DetailPost = () => {
     const { posts } = useSelector(state => state.post)
     const navigate = useNavigate()
 
+    const [payload, setPayload] = useState({
+        name: '',
+        phone: '',
+        content: '',
+    })
+    const handleSubmit = () => {
+        Swal.fire(`Cảm ơn ${payload.name ? payload.name : ''}`, 'Phản hồi của bạn đã được chúng tôi ghi nhận', 'success').then(() => {
+            setPayload({
+                name: '',
+                phone: '',
+                content: '',
+            })
+        })
+    }
     useEffect(() => {
         postId && dispatch(getPostsLimit({ id: postId }))
     }, [postId])
@@ -30,7 +50,6 @@ const DetailPost = () => {
         }, { state: { titleSearch } });
     }
 
-
     return (
         <div className='w-full flex gap-8'>
             <div className='w-[63%]'>
@@ -42,9 +61,8 @@ const DetailPost = () => {
                             <span>Chuyện mục: </span>
                             <span
                                 className='text-blue-600 underline font-medium hover:text-orange-600 cursor-pointer'
-                                onClick={handleFilterLabel}
-
-                            >{posts[0]?.labelData?.value}
+                                onClick={handleFilterLabel}>
+                                {posts[0]?.labelData?.value}
                             </span>
                         </div>
                         <div className='flex items-center gap-2'>
@@ -78,12 +96,15 @@ const DetailPost = () => {
                     <div className='mt-8'>
                         <h3 className='font-semibold text-xl my-4'> Thông tin mổ tả </h3>
                         <div className='flex flex-col gap-3'>
-                            {posts[0]?.description && JSON.parse(posts[0]?.description)?.map((item, index) => {
+                            {posts[0]?.description && Array.isArray(JSON.parse(posts[0]?.description)) && JSON.parse(posts[0]?.description).map((sitem, index) => {
                                 return (
-                                    <span key={index}>{item}</span>
-                                )
+                                    <span key={index}>{sitem}</span>
+                                );
+
                             })}
+
                         </div>
+
                     </div>
                     <div className='mt-8'>
                         <h3 className='font-semibold text-xl my-4 '> Đặc điểm tin đăng </h3>
@@ -146,7 +167,23 @@ const DetailPost = () => {
                         <span className='text-gray-500 text-sm py-4 text-justify italic'>{`${posts[0]?.title} - Mã tin: ${posts[0]?.attributes?.hashtag}`}</span>
                         <span className='text-gray-500 text-sm py-4 text-justify'>{underMap[1]}</span>
                     </div>}
+                            
+                    <CommentSection />
+
+                    {/* <div className='mt-8'>
+                    <Button 
+                 text={<><RiFlagLine className="mr-2" />Gửi phản hồi</>}
+                bgColor='bg-blue-500'
+                textColor='text-white'
+                px='px-6'
+                onClick={() => navigate('/lien-he')}
+            /> 
+            </div> */}
                 </div>
+
+
+
+
 
             </div>
             <div className='w-[37%] flex flex-col gap-4'>

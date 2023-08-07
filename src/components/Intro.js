@@ -3,7 +3,7 @@ import { text } from '../ultils/dataIntro'
 import icons from '../ultils/icons'
 import { Button } from '../components'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { formatVietnameseToString } from '../ultils/Common/formatVietnameseToString'
 
 const { GrStar, } = icons
@@ -12,6 +12,7 @@ const star = [1, 2, 3, 4, 5]
 const Intro = () => {
 
     const { categories } = useSelector(state => state.app)
+    const navigate = useNavigate()
 
     return (
         <div className='w-3/5 bg-white rounded-md shadow-md p-4 gap-4 flex-col flex justify-center items-center'>
@@ -62,6 +63,8 @@ const Intro = () => {
                 bgColor='bg-secondary2'
                 textColor='text-white'
                 px='px-6'
+                onClick={() => navigate('/he-thong/tao-moi-bai-dang')}
+            
             />
             <div className='h-12'></div>
         </div>

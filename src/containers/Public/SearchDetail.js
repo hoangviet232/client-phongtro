@@ -23,6 +23,7 @@ const SearchDetail = () => {
                     <ItemSidebar isDouble={true} type='priceCode' content={prices} title='Xem theo giá' />
                     <ItemSidebar isDouble={true} type='areaCode' content={areas} title='Xem theo diện tích' />
                     <RelatedPost />
+                  
                 </div>
             </div>
 
